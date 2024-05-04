@@ -27,7 +27,8 @@ const toppingsDiv = document.getElementById("toppingsDiv");
 
 
 window.onload = function () {
-    toppingsDiv.style.display="none";
+    
+    toppingsDiv.style.display="none"; //first line sets the div to be hidden
     submitOrderButton.onclick = onSubmitOrderButtonClicked;
     icecreamContainerCone.onchange = onIcecreamContainerConeChange;
     icecreamContainerCup.onchange = onRadioButtonChange;
@@ -36,19 +37,22 @@ window.onload = function () {
 
 
 function onSubmitOrderButtonClicked() {
-    //one scoop 2.25 
-    //additional scoop 1.25
 
+    //constants
     const ONE_SCOOP_PRICE = 2.25;
     const ADDITIONAL_SCOOP_PRICE = 1.25;
     const TAX_RATE = .07;
+    
+    //value from the document's elements
     let numberOfScoops = numberOfScoopsTextbox.value;
 
+    //variables for calculating
     let toppingsPrice = 0;
     let scoopPrice = 0;
     let tax = 0;
     let totalPrice = 0;
 
+    //calculations for the toppings chosen.
     if (sprinklesCheckbox.checked) {
         toppingsPrice += .50;
     }
@@ -62,17 +66,20 @@ function onSubmitOrderButtonClicked() {
         toppingsPrice += 0.25;
     }
 
+    //calculates the values for the output
     scoopPrice = (ONE_SCOOP_PRICE) + ((numberOfScoops - 1) * ADDITIONAL_SCOOP_PRICE);
     tax = (scoopPrice + toppingsPrice) * TAX_RATE;
     totalPrice = scoopPrice + toppingsPrice + tax;
 
 
-    outputBasePrice.innerHTML = (scoopPrice + toppingsPrice).toFixed(2);
-    outputTax.innerHTML = tax.toFixed(2);
-    outputTotal.innerHTML = totalPrice.toFixed(2);
+    //displays the output
+    outputBasePrice.innerHTML = `$${(scoopPrice + toppingsPrice).toFixed(2)}`;
+    outputTax.innerHTML = `$${tax.toFixed(2)}`;
+    outputTotal.innerHTML = `$${totalPrice.toFixed(2)}`;
 }
 
 //can these go into one fucntion?
+//hides and displays when specific radio button is activated.
 function onRadioButtonChange() {
     if (icecreamContainerCup) {
         toppingsDiv.style.display = "block";
