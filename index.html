@@ -64,15 +64,65 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Hello, World!</h1>
+                    <h1>Ice Cream Project</h1>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-
+                    <!--Make sure number is between 1-4-->
+                    <label for="numberOfScoopsTextbox">Number of scoops: <input id="numberOfScoopsTextbox"
+                            type="number" value = 1 min = "1" max = "4"></label>
+                    <br>
+                    <label for="icecreamContainerCone"><input id="icecreamContainerCone" checked type="radio"
+                            name="icecreamContainer"> Cone</label>
+                    <!--Add Margins between these-->
+                    <label for="icecreamContainerCup"><input id="icecreamContainerCup" type="radio"
+                            name="icecreamContainer"> Cup</label>
                 </div>
             </div>
+            <div id="toppingsDiv"> <!--Add borders, make it invisible-->
+                <div class="row">
+                    <div class="col">
+                        <p>Toppings</p>
+
+                        <!--What was i trying to do-->
+                        <label for="sprinklesCheckbox"><input id="sprinklesCheckbox" type="checkbox"> Sprinkles
+                            ($.50)</label>
+                        <label for="whippedCreamCheckbox"><input id="whippedCreamCheckbox" type="checkbox"> Whipped
+                            Cream ($0.25)</label>
+                        <label for="hotFudgeCheckbox"><input id="hotFudgeCheckbox" type="checkbox"> Hot Fudge
+                            ($1.25)</label>
+                        <label for="cherryCheckbox"><input id="cherryCheckbox" type="checkbox"> Cherry ($.25)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input id="submitOrderButton" type="button" value="Submit Order">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <ul>
+                        <li>Base price: </li>
+                        <li>Tax: </li>
+                        <li>Total Due: </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li id="outputBasePrice">xx.xx</li>
+                        <li id="outputTax">xx.xx</li>
+                        <li id="outputTotal">xx.xx</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
         </div>
 
     </main>
